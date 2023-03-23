@@ -90,8 +90,11 @@ public class CartController extends BaseController{
 	
 	@RequestMapping(value="Thanhtoan", method = RequestMethod.POST)
 	public String CheckOutBill(HttpServletRequest request,HttpSession session, @ModelAttribute("bills") Bills bills) {
-		bills.setQuanty(Integer.parseInt((String)session.getAttribute("TotalSoLuong")));
-		bills.setTotal(Double.parseDouble((String)session.getAttribute("TotalTongGia")));
+//		bills.setQuanty(Integer.parseInt((String)session.getAttribute("TotalSoLuong")));
+//		bills.setTotal(Double.parseDouble((String)session.getAttribute("TotalTongGia")));
+		
+		bills.setQuanty(Integer.parseInt((String)session.getAttribute("TotalSoLuong").toString()));
+		bills.setTotal(Double.parseDouble((String)session.getAttribute("TotalTongGia").toString()));
 		
 		if(billsService.AddBills(bills)>0) {
 			HashMap<Integer,CartDTO> carts = (HashMap<Integer,CartDTO>)session.getAttribute("Cart");
