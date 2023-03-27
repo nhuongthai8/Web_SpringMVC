@@ -73,4 +73,6 @@ public class ProductsController extends BaseController {
 		_mvShare.setViewName("user/sanpham/chitietsp"); 
 		return _mvShare;
 	}
+	
+	
 }
