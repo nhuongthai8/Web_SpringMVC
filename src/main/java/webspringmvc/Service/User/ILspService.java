@@ -13,9 +13,8 @@ public interface ILspService {
 	public List<SanphamDTO> GetDataSanphamTLid(int id);
 	@Autowired
 	public List<SanphamDTO> GetDataSanphamTLpaginate(int id,int start, int end);
-//	@Autowired
-//	public List<SanphamDTO> GetDataSanphamTNPPid(int id);
-//	@Autowired
-//	public List<SanphamDTO> GetDataSanphamTNPPpaginate(int start, int end);
-	
+	@Autowired
+	public List<SanphamDTO> GetDataSanphamTNPPid(int id);
+	@Autowired
+	public List<SanphamDTO> GetDataSanphamTNPPpaginate(int id,int start, int end);
 }

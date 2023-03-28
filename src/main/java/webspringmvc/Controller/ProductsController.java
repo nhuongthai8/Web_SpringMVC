@@ -28,6 +28,20 @@ public class ProductsController extends BaseController {
 		_mvShare.setViewName("user/sanpham");
 		return _mvShare;
 	}
+	
+//	@RequestMapping("/sanphamtheoloai/{currentPage}")
+//	public ModelAndView SanPham(@PathVariable Integer currentPage) {
+//		
+//		_mvShare.setViewName("user/sanpham/sanphamtheoloai");
+//		int totalData = lspService.GetDataSanphamTLid(Integer.parseInt(id)).size();
+//		PaginateDTO paginateInfo = paginateService.GetInfoPaginate(totalData, totalSpOnPage, currentPage);
+//		_mvShare.addObject("paginateInfo", paginateInfo);
+//		_mvShare.addObject("spallpaginate", lspService.GetDataSanphamTLpaginate(Integer.parseInt(id), paginateInfo.getStart(), totalSpOnPage));
+//		return _mvShare;
+//		
+//		_mvShare.setViewName("user/sanpham");
+//		return _mvShare;
+//	}
 
 	// =================================================================//
 	//lấy sản phẩm theo id loại sản phẩm
@@ -58,11 +72,50 @@ public class ProductsController extends BaseController {
 		return _mvShare;
 	}
 	
+	@RequestMapping("/sanphamtheoloai/chitietsp/{id}")
+	public ModelAndView ChitietSPTL(@PathVariable int id) {
+		_mvShare.addObject("allsanpham", productService.GetSPid(id));
+		int idCate = productService.GetSPid(id).getId_lsp();
+		_mvShare.addObject("allsanphamrelated", productService.GetDataSanphamTLLienQuan(idCate));
+		_mvShare.setViewName("user/sanpham/chitietsp"); 
+		return _mvShare;
+	}
+	
 	//=================================================================//
 	//lấy sản phẩm theo id nhà cung cấp
 	
+	@RequestMapping("/sanphamtheonpp/{id}")
+	public ModelAndView SanTheoNhaPP(@PathVariable String id) {
+		_mvShare.setViewName("user/sanpham/sanphamtheonpp");
+		int totalData = lspService.GetDataSanphamTNPPid(Integer.parseInt(id)).size();
+		PaginateDTO paginateInfo = paginateService.GetInfoPaginate(totalData, totalSpOnPage, 1);
+		_mvShare.addObject("idnpp", id);
+		_mvShare.addObject("paginateInfo", paginateInfo);
+		_mvShare.addObject("sptnpppaginate",
+				lspService.GetDataSanphamTNPPpaginate(Integer.parseInt(id), paginateInfo.getStart(), totalSpOnPage));
+		return _mvShare;
+	}
 	
+	@RequestMapping("/sanphamtheonpp/{id}/{currentPage}")
+	public ModelAndView SanTheoNhaPP(@PathVariable String id, @PathVariable Integer currentPage) {
+		_mvShare.setViewName("user/sanpham/sanphamtheonpp");
+		int totalData = lspService.GetDataSanphamTNPPid(Integer.parseInt(id)).size();
+		PaginateDTO paginateInfo = paginateService.GetInfoPaginate(totalData, totalSpOnPage, currentPage);
+		_mvShare.addObject("idnpp", id);
+		_mvShare.addObject("paginateInfo", paginateInfo);
+		_mvShare.addObject("sptnpppaginate",
+				lspService.GetDataSanphamTNPPpaginate(Integer.parseInt(id), paginateInfo.getStart(), totalSpOnPage));
+		return _mvShare;
+	}
 	
+	@RequestMapping("/sanphamtheonpp/chitietsp/{id}")
+	public ModelAndView ChitietSPTNpp(@PathVariable int id) {
+		_mvShare.addObject("allsanpham", productService.GetSPid(id));
+		int idCate = productService.GetSPid(id).getId_lsp();
+		_mvShare.addObject("allsanphamrelated", productService.GetDataSanphamTLLienQuan(idCate));
+		_mvShare.setViewName("user/sanpham/chitietsp"); 
+		return _mvShare;
+	}
 	//=================================================================//
 	
 	@RequestMapping("/chitietsp/{id}")

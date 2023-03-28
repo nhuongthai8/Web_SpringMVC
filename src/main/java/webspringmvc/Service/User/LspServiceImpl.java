@@ -21,12 +21,11 @@ public class LspServiceImpl implements ILspService {
 		return sanphamDAO.GetDataSanphamTLpaginate(id ,start,totalPage);
 	}
 
-//	public List<SanphamDTO> GetDataSanphamTNPPid(int id) {
-//		return sanphamDAO.GetDataSanphamTNPPid(id);
-//	}
-//
-//	public List<SanphamDTO> GetDataSanphamTNPPpaginate(int start, int end) {
-//		return sanphamDAO.GetDataSanphamTNPPpaginate(start,end);
-//	}
+	public List<SanphamDTO> GetDataSanphamTNPPid(int id) {
+		return sanphamDAO.GetDataSanphamTNPPid(id);
+	}
 
+	public List<SanphamDTO> GetDataSanphamTNPPpaginate(int id,int start, int totalPage) {
+		return sanphamDAO.GetDataSanphamTNPPpaginate(id ,start,totalPage);
+	}
 }

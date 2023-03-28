@@ -15,14 +15,17 @@
 		</div>
 
 		<!-- Collect the nav links, forms, and other content for toggling -->
-		<div class="collapse navbar-collapse"
-			id="bs-example-navbar-collapse-1">
-
-
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav navbar-right">
-				<li><a href="#">Đăng Nhập</a></li>
-				<li><a href="#">Đăng Ký</a></li>
-				<li><a href="<c:url value="/Giohang"/>">Giỏ Hàng</a></li>
+				<c:if test="${empty Logininfo}">
+					<li><a href="<c:url value="/Dangnhap"/>">Đăng Nhập</a></li>
+					<li><a href="<c:url value="/Dangky"/>">Đăng Ký</a></li>
+				</c:if>
+				<c:if test="${not empty Logininfo}">
+					<li><a href="<c:url value="#"/>">Xin chào ${Logininfo.hoTen}</a></li>
+					<li><a href="<c:url value="/Dangxuat"/>">Đăng Xuất</a></li>
+				</c:if>
+					<li><a href="<c:url value="/Giohang"/>">Giỏ Hàng</a></li>
 			</ul>
 		</div>
 		<!-- /.navbar-collapse -->

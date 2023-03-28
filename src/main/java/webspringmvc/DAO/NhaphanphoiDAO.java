@@ -17,4 +17,6 @@ public class NhaphanphoiDAO extends BaseDAO{
 		list = _jdbcTemplate.query(sql, new MapperNhaphanphoi());
 		return list;
 	}
+	
+	
 }

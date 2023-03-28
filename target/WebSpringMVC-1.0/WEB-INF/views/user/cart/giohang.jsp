@@ -74,9 +74,7 @@
 							</button>
 						</td>
 						<td>
-							<button type="button" class="btn btn-success">
-								Thanh toán <span class="glyphicon glyphicon-play"></span>
-							</button>
+							<a href="<c:url value="/Thanhtoan"/>" class="btn btn-success glyphicon glyphicon-play" role="button">Thanh toán</a>
 						</td>
 						<td> </td>
 					</tr>

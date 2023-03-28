@@ -33,5 +33,17 @@
 			</div>
 		</c:forEach>
 	</div>
+	<div class="row" style="display: flex; justify-content: center; align-items: center;">
+		<ul class="pagination alg-right-pad">
+		<c:forEach var="item" begin="1" end="${paginateInfo.totalPage}" varStatus="loop">
+			<c:if test="${(loop.index) == paginateInfo.currentPage}">
+				<li><a href="<c:url value="/sanpham/${loop.index}"/>" class="active">${loop.index}</a></li>
+			</c:if>
+			<c:if test="${(loop.index) != paginateInfo.currentPage}">
+				<li><a href="<c:url value="/sanpham/${loop.index}"/>">${loop.index}</a></li>
+			</c:if>
+		</c:forEach>
+		</ul>
+	</div>
 </body>
 </html>

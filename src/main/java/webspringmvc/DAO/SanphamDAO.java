@@ -30,6 +30,7 @@ public class SanphamDAO extends BaseDAO{
 	}
 	//=================================================================//
 	//lấy tất cả sản phẩm, sắp xếp random
+	
 	private String sqlStringGetDataAllSanpham() {
 		StringBuffer sql= sqlString();
 		sql.append("order by rand() ");
@@ -42,6 +43,25 @@ public class SanphamDAO extends BaseDAO{
 		list = _jdbcTemplate.query(sql, new MapperSanphamDTO());
 		return list;
 	}
+	
+//	private String sqlGetDataSanphamAllpaginate(int start, int totalPage) {
+//		StringBuffer sql = sqlString();
+//		sql.append("order by rand() ");
+//		sql.append("limit "+ start + ", "+ totalPage);
+//		return sql.toString();
+//	}
+//	
+//	public List<SanphamDTO> GetDataSanphamAllpaginate(int start, int totalPage){
+//		String sqlGetDataAll = sqlGetDataSanphamAllpaginate(start,totalPage);
+//		List<SanphamDTO> list_databyid = _jdbcTemplate.query(sqlGetDataAll.toString(), new MapperSanphamDTO());
+//		List<SanphamDTO> list = new ArrayList<SanphamDTO>();
+//		if(list_databyid.size()>0) {
+//			String sql = sqlGetDataSanphamAllpaginate(start,totalPage);
+//			list = _jdbcTemplate.query(sql, new MapperSanphamDTO());
+//		}
+//		return list;
+//	}
+	
 	//=================================================================//
 	//lấy sản phẩm có highlight
 	private String sqlStringGetDataSanphamHighlight() {
@@ -109,31 +129,31 @@ public class SanphamDAO extends BaseDAO{
 	//lấy sản phẩm theo nhà phân phối
 	
 	
-//	private String sqlGetDataSanphamTNPPid(int id) {
-//		StringBuffer sql = sqlString();
-//		sql.append("WHERE 1 = 1 ");
-//		sql.append("and id_npp = "+id);
-//		return sql.toString();
-//	}
-//	private String sqlGetDataSanphamTNPPpaginate(int start, int end) {
-//		StringBuffer sql = sqlString();
-//		sql.append("limit "+ start + ", "+ end);
-//		return sql.toString();
-//	}
-//	
-//	public List<SanphamDTO> GetDataSanphamTNPPid(int id){
-//		List<SanphamDTO> list = new ArrayList<SanphamDTO>();
-//		String sql = sqlGetDataSanphamTNPPid(id);
-//		list = _jdbcTemplate.query(sql, new MapperSanphamDTO());
-//		return list;
-//	}
-//	
-//	public List<SanphamDTO> GetDataSanphamTNPPpaginate(int start, int end){
-//		List<SanphamDTO> list = new ArrayList<SanphamDTO>();
-//		String sql = sqlGetDataSanphamTNPPpaginate(start,end);
-//		list = _jdbcTemplate.query(sql, new MapperSanphamDTO());
-//		return list;
-//	}
+	private String sqlGetDataSanphamTNPPid(int id) {
+		StringBuffer sql = sqlString();
+		sql.append("WHERE 1 = 1 ");
+		sql.append("and id_npp = "+id);
+		return sql.toString();
+	}
+	private String sqlGetDataSanphamTNPPpaginate(int id,int start, int totalPage) {
+		StringBuffer sql = sqlString();
+		sql.append("limit "+ start + ", "+ totalPage);
+		return sql.toString();
+	}
+	
+	public List<SanphamDTO> GetDataSanphamTNPPid(int id){
+		List<SanphamDTO> list = new ArrayList<SanphamDTO>();
+		String sql = sqlGetDataSanphamTNPPid(id);
+		list = _jdbcTemplate.query(sql, new MapperSanphamDTO());
+		return list;
+	}
+	
+	public List<SanphamDTO> GetDataSanphamTNPPpaginate(int id,int start, int totalPage){
+		List<SanphamDTO> list = new ArrayList<SanphamDTO>();
+		String sql = sqlGetDataSanphamTNPPpaginate(id,start,totalPage);
+		list = _jdbcTemplate.query(sql, new MapperSanphamDTO());
+		return list;
+	}
 	
 	//=================================================================//
 	//lấy thông tin chi tiết 1 sản phẩm

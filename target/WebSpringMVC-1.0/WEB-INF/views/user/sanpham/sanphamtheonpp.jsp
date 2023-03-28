@@ -12,7 +12,7 @@
 			<c:forEach var="item" items="${sptnpppaginate}">
 				<div class="col-md-4 text-center col-sm-6 col-xs-6">
 					<div class="thumbnail product-box">
-						<img src="assets/hinhsanpham/${item.hinhSP}" alt="" />
+						<img src="<c:url value="/assets/hinhsanpham/${item.hinhSP}"/>" alt="" />
 						<div class="caption">
 							<h3>
 								<a href="#">${item.tenSP}</a>
@@ -35,13 +35,14 @@
 	</div>
 	<div class="row">
 		<ul class="pagination alg-right-pad">
-			<li><a href="#">&laquo;</a></li>
-			<li><a href="#">1</a></li>
-			<li><a href="#">2</a></li>
-			<li><a href="#">3</a></li>
-			<li><a href="#">4</a></li>
-			<li><a href="#">5</a></li>
-			<li><a href="#">&raquo;</a></li>
+		<c:forEach var="item" begin="1" end="${paginateInfo.totalPage}" varStatus="loop">
+			<c:if test="${(loop.index) == paginateInfo.currentPage}">
+				<li><a href="<c:url value="/sanphamtheonpp/${idnpp}/${loop.index}"/>" class="active">${loop.index}</a></li>
+			</c:if>
+			<c:if test="${(loop.index) != paginateInfo.currentPage}">
+				<li><a href="<c:url value="/sanphamtheonpp/${idnpp}/${loop.index}"/>">${loop.index}</a></li>
+			</c:if>
+		</c:forEach>
 		</ul>
 	</div>
 </body>
