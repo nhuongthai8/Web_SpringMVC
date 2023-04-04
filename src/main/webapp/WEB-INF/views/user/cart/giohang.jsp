@@ -72,6 +72,7 @@
 						</td>
 						<td>
 							<a href="<c:url value="/Thanhtoan"/>" class="btn btn-success glyphicon glyphicon-play" role="button">Thanh toán</a>
+							<a href="<c:url value="/Thanhtoanpaypal"/>" class="btn btn-success glyphicon glyphicon-play" role="button">Thanh toán sử dụng Paypal</a>
 						</td>
 						<td> </td>
 					</tr>

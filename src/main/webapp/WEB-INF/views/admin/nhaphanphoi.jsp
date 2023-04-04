@@ -15,8 +15,7 @@
 		<!-- DataTales Example -->
 		<div class="card shadow mb-4">
 			<div class="card-header py-3">
-				<h6 class="m-0 font-weight-bold text-primary">DataTables
-					Example</h6>
+			<a href="<c:url value="/quan-tri/nhaphanphoi/addnhaphanphoi"/>" class="btn btn-primary btn-icon-split"> <span class="icon text-white-50"> <i class="fas fa-flag"></i> </span> <span class="text">Thêm nhà phân phối</span> </a>
 			</div>
 			<div class="card-body">
 				<div class="table-responsive">
@@ -26,13 +25,17 @@
 							<tr>
 								<th>Id</th>
 								<th>Tên nhà phân phối</th>
+								<th>Edit</th>
+								<th>Delete</th>
 							</tr>
 						</thead>
 						<tbody>
-							<c:forEach var="npp" items="${list}">
+							<c:forEach var="npp" items="${list}" varStatus="status">
 							<tr>
 								<td>${npp.id}</td>
 								<td>${npp.tenNPP}</td>
+								<td><a href="editnhaphanphoi/${npp.id}" class="btn btn-warning btn-circle btn-sm"><i class="fas fa-exclamation-triangle"></i></a></td>  
+								<td><a href="deleteNPP?id=${npp.id}" class="btn btn-danger btn-circle btn-sm"><i class="fas fa-trash"></i></a></td>
 							</tr>
 							</c:forEach>
 						</tbody>

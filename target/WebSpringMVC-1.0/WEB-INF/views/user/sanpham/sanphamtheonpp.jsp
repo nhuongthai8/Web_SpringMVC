@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<div class="row">
+	<div class="row" >
 			<c:forEach var="item" items="${sptnpppaginate}">
 				<div class="col-md-4 text-center col-sm-6 col-xs-6">
 					<div class="thumbnail product-box">
@@ -33,7 +33,7 @@
 				</div>
 			</c:forEach>
 	</div>
-	<div class="row">
+	<div class="row" style="display: flex; justify-content: center; align-items: center;">
 		<ul class="pagination alg-right-pad">
 		<c:forEach var="item" begin="1" end="${paginateInfo.totalPage}" varStatus="loop">
 			<c:if test="${(loop.index) == paginateInfo.currentPage}">

@@ -68,13 +68,11 @@
 						<td> </td>
 						<td> </td>
 						<td>
-							<button type="button" class="btn btn-default">
-								<span class="glyphicon glyphicon-shopping-cart"></span> Tiếp tục
-								mua
-							</button>
+							<a href="<c:url value="/trangchu"/>" class="btn btn-default glyphicon glyphicon-shopping-cart" role="button">Tiếp tục mua</a>
 						</td>
 						<td>
 							<a href="<c:url value="/Thanhtoan"/>" class="btn btn-success glyphicon glyphicon-play" role="button">Thanh toán</a>
+							<a href="<c:url value="/Thanhtoanpaypal"/>" class="btn btn-success glyphicon glyphicon-play" role="button">Thanh toán sử dụng Paypal</a>
 						</td>
 						<td> </td>
 					</tr>

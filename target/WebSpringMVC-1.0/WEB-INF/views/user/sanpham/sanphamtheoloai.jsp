@@ -33,7 +33,7 @@
 				</div>
 			</c:forEach>
 	</div>
-	<div class="row">
+	<div class="row" style="display: flex; justify-content: center; align-items: center;">
 		<ul class="pagination alg-right-pad">
 		<c:forEach var="item" begin="1" end="${paginateInfo.totalPage}" varStatus="loop">
 			<c:if test="${(loop.index) == paginateInfo.currentPage}">
